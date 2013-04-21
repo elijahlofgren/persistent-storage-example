@@ -1,0 +1,75 @@
+<html>
+<head>
+<!-- 
+Author: Elijah Lofgren
+License for this index.html page:
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <http://unlicense.org/>
+-->
+<!-- Note: Adobe PhoneGap Build automatically has phonegap.js so you don't need to upload it,
+           just reference it here: https://build.phonegap.com/docs/preparing-your-app#what_do_i_upload
+           
+           This page based on storage example from http://docs.phonegap.com/en/2.6.0/cordova_storage_storage.md.html#localStorage -->
+<script src="phonegap.js"></script>
+<script src="lib/js/jquery-1.9.1.min.js"></script>
+<script>
+// Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+       // window.localStorage.setItem("key", "value");
+       // var keyname = window.localStorage.key(i);
+        // keyname is now equal to "key"
+        var value = window.localStorage.getItem("key");
+        // value is now equal to "value"
+        //window.localStorage.removeItem("key");
+        //window.localStorage.setItem("key2", "value2");
+                    debug('retrieved ' + value + ' from persistant storage');
+        $('#persistTest').val(value);
+        }
+        
+    
+       function debug(message) {
+       $('#debugLog').html($('#debugLog').html() + '\n' + message)  
+       } 
+    </script>
+
+</head>
+<body>
+Text in the following field is persistant:
+<input type="text" id="persistText" />
+<input type="button" id="saveButton" value="save" />
+<textarea id="debugLog" rows="10"></textarea>
+<script>
+  $('#saveButton').click(function() {
+            window.localStorage.setItem("key", $('#persistText').val());
+            debug('saved ' + $('#persistText').val() + ' to persistant storage');
+});
+</script>
+</body>
+</html>
