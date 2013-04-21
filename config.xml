@@ -16,5 +16,6 @@ Testing
     <author href="http://www.elijahlofgren.com/" email="ejlofgre@gmail.com">
 Elijah Lofgren
     </author>
+<feature name="http://api.phonegap.com/1.0/file"/>
 
 </widget>

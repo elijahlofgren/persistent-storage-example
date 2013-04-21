@@ -50,7 +50,9 @@ For more information, please refer to <http://unlicense.org/>
         //window.localStorage.removeItem("key");
         //window.localStorage.setItem("key2", "value2");
                     debug('retrieved ' + value + ' from persistant storage');
-        $('#persistTest').val(value);
+        $('#persistText').val(value);
+        $('#loadingMsg').hide();
+        $('#bodyMain').show();
         }
         
     
@@ -61,6 +63,8 @@ For more information, please refer to <http://unlicense.org/>
 
 </head>
 <body>
+<div id="loadingMsg">Loading...</div>
+<div style="display:none;" id="bodyMain">
 Text in the following field is persistant:
 <input type="text" id="persistText" />
 <input type="button" id="saveButton" value="save" />
@@ -71,5 +75,6 @@ Text in the following field is persistant:
             debug('saved ' + $('#persistText').val() + ' to persistant storage');
 });
 </script>
+</div>
 </body>
 </html>
